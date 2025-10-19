@@ -4,13 +4,13 @@ import Typewriter from 'typewriter-effect';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             {/* Typewriter Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-500">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white ">
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
@@ -33,7 +33,7 @@ export const HeroSection = () => {
               />
             </h1>
 
-            <h2 className="text-3xl md:text-4xl font-semibold text-white/90">
+            <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
               Your Financial Future
             </h2>
 
@@ -58,7 +58,7 @@ export const HeroSection = () => {
             <div>
               <Button
                 size="lg"
-                className="bg-transparent border border-white text-white text-lg px-8 py-6 hover:bg-gray-300 hover:text-white transition-colors duration-300 flex items-center"
+                className="bg-white  border-0 text-black hover:bg-white/90 text-lg px-8 py-6 transition-all duration-300 flex items-center"
               >
                 Book Free Consultation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

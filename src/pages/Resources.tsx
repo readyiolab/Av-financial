@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, TrendingUp, Shield, Calculator, ArrowRight, Sparkles, BookOpen } from "lucide-react";
+import { FileText, Download, TrendingUp, Shield, Calculator, ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Resources = () => {
@@ -44,327 +44,253 @@ const Resources = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-    
-        {/* Hero Section - Dark */}
-        <section  className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
-          {/* Background Image with Overlay */}
-          <div className="absolute inset-0">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1920&q=80')"
-              }}
-            />
-            <div className="absolute inset-0 bg-slate-900/90" />
-          </div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
+        </div>
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Content */}
-              <div className="space-y-8">
-                <div className="inline-block px-4 py-2">
-                  <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
-                    Free Educational Resources
-                  </span>
-                </div>
-
-                <div>
-                  <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-                    Unlock Knowledge.
-                  </h1>
-                  <h2 className="text-4xl md:text-5xl font-bold text-blue-500 mb-6">
-                    Protect Your Wealth.
-                  </h2>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                    Grow Confidently.
-                  </h3>
-                </div>
-
-                <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
-                  Start taking control of your financial future with Shrutep Amin's free, expert-crafted guides.
-                  Each guide is designed to give you actionable steps and clarity on complex financial topics—without
-                  confusing jargon.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button
-                    size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-10 py-7"
-                  >
-                    Download Free Guides
-                    <Download className="ml-2 w-5 h-5" />
-                  </Button>
-
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-slate-700 text-white bg-transparent hover:bg-slate-800 text-lg px-10 py-7"
-                  >
-                    Explore Resources
-                  </Button>
-                </div>
-
-                <div className="flex items-center gap-8 pt-4">
-                  <div>
-                    <div className="text-3xl font-bold text-white">3</div>
-                    <div className="text-sm text-slate-400">Free Guides</div>
-                  </div>
-                  <div className="w-px h-12 bg-slate-700" />
-                  <div>
-                    <div className="text-3xl font-bold text-white">100%</div>
-                    <div className="text-sm text-slate-400">Free Access</div>
-                  </div>
-                  <div className="w-px h-12 bg-slate-700" />
-                  <div>
-                    <div className="text-3xl font-bold text-white">Expert</div>
-                    <div className="text-sm text-slate-400">Insights</div>
-                  </div>
-                </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/30 mb-4 sm:mb-6 backdrop-blur-sm">
+                <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-pulse" />
+                <span className="text-xs sm:text-sm font-semibold bg-white bg-clip-text text-transparent uppercase tracking-wide">
+                  Free Educational Resources
+                </span>
               </div>
 
-              {/* Right Visual Element */}
-              <div className="relative">
-                <div className="relative rounded-tl-[3rem] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80"
-                    alt="Financial Education Resources"
-                    className="w-full h-[650px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Free Guides Section - Light */}
-        <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
-          </div>
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            {/* Section Header */}
-            <div className="text-center mb-20">
-              <div className="inline-block px-6 py-3 bg-slate-100 rounded-full mb-6 border border-slate-200">
-                <span className="text-sm font-semibold text-slate-700 uppercase tracking-widest">Our Free Guides</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6">
-                Expert Knowledge, <span className="text-slate-700">Free Access</span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Unlock Knowledge
+              </h1>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400">
+                Protect & Grow Your Wealth
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Download comprehensive guides designed to help you make informed financial decisions
+
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 font-semibold">
+                Expert-Crafted Financial Guides
               </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-slate-400 to-slate-300 mx-auto mt-8 rounded-full"></div>
+
+              <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                Take control of your financial future with Shrutep Amin's free guides. Each resource provides actionable steps and clear insights on complex financial topics, free of jargon.
+              </p>
+
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-full border border-blue-500/30 hover:border-blue-400 hover:from-blue-600/30 hover:to-blue-500/30 backdrop-blur-sm transition-all duration-300">
+                  <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                  <span className="text-xs sm:text-sm font-medium text-blue-100">3 Free Guides</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-full border border-blue-500/30 hover:border-blue-400 hover:from-blue-600/30 hover:to-blue-500/30 backdrop-blur-sm transition-all duration-300">
+                  <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                  <span className="text-xs sm:text-sm font-medium text-blue-100">Expert Insights</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-full border border-blue-500/30 hover:border-blue-400 hover:from-blue-600/30 hover:to-blue-500/30 backdrop-blur-sm transition-all duration-300">
+                  <Download className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                  <span className="text-xs sm:text-sm font-medium text-blue-100">100% Free Access</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+                <Button className="w-full sm:w-auto bg-white hover:bg-white/90 text-black text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+                  Download Free Guides
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-slate-800 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Explore Resources
+                </Button>
+              </div>
             </div>
 
-            {/* Resources - Alternating Layout */}
-            <div className="relative max-w-7xl mx-auto py-16 px-6">
-              {/* Vertical timeline line (centered) */}
-              <div className="absolute left-1/2 top-0 w-1 bg-slate-200 h-full transform -translate-x-1/2 hidden md:block"></div>
+            <div className="relative hidden lg:block">
+              <div className="relative rounded-tl-[3rem] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80"
+                  alt="Financial Education Resources"
+                  className="w-full h-[500px] md:h-[650px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="space-y-24">
-                {resources.map((resource, idx) => {
-                  const isEven = idx % 2 === 0;
-                  return (
-                    <div
-                      key={idx}
-                      className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                        } md:gap-12 group`}
-                    >
-                      
-                     
+      {/* Free Guides Section */}
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
+        </div>
 
-                      {/* Content section */}
-                      <div className="relative md:w-2/3">
-                        <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                          
-                          <h3 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4 group-hover:text-slate-800 transition-colors duration-300">
-                            {resource.title}
-                          </h3>
-                          <p className="text-lg text-slate-600 mb-6 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                            {resource.description}
-                          </p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+                Our Free Guides
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4 sm:mb-6">
+              Expert Knowledge, <span className="text-slate-700">Free Access</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Download comprehensive guides designed to help you make informed financial decisions
+            </p>
+            <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-slate-400 to-slate-300 mx-auto mt-6 sm:mt-8 rounded-full"></div>
+          </div>
 
-                          {/* Points */}
-                          <ul className="space-y-3 mb-8">
-                            {resource.points.map((point, pointIdx) => (
-                              <li
-                                key={pointIdx}
-                                className="flex items-start gap-3 text-slate-600 group-hover:text-slate-700 transition-colors duration-300"
-                              >
-                                <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-300 transition-colors duration-300">
-                                  <div className="w-2 h-2 rounded-full bg-slate-700"></div>
-                                </div>
-                                <span>{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <Button className="bg-slate-900 hover:bg-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                            <Download className="w-4 h-4 mr-2" />
-                            Download Now
-                          </Button>
-                        </div>
-                      </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+              {resources.map((resource, idx) => (
+                <div key={idx} className="group relative">
+                  <div className="absolute inset-0 bg-slate-200 rounded-2xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 blur-lg"></div>
+                  <div className="relative bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 h-full flex flex-col border border-slate-200">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${resource.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                      <resource.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                  );
-                })}
-              </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3 group-hover:text-slate-800 transition-colors duration-300">
+                      {resource.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4 sm:mb-6 flex-grow group-hover:text-slate-700 transition-colors duration-300">
+                      {resource.description}
+                    </p>
+                    <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                      {resource.points.map((point, pointIdx) => (
+                        <li key={pointIdx} className="flex items-start gap-2 sm:gap-3 text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-300 transition-colors duration-300">
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-700"></div>
+                          </div>
+                          <span className="text-sm sm:text-base">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+                      Download Now
+                      <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Additional Resources - Dark */}
-        <section className="py-20 md:py-32 bg-black relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          </div>
+      {/* Additional Resources Section */}
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            {/* Section Header */}
-            <div className="text-center mb-20">
-              <div className="inline-block px-4 py-2 mb-6">
-                <span className="text-sm font-semibold text-white/70 uppercase tracking-wide">Interactive Tools</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white border border-blue-500/30 mb-4 sm:mb-6 backdrop-blur-sm">
+              <Calculator className="w-3 h-3 sm:w-4 sm:h-4 text-black animate-pulse" />
+              <span className="text-xs sm:text-sm font-semibold bg-black bg-clip-text text-transparent uppercase tracking-wide">
+                Interactive Tools
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-4 sm:mb-6">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
                 More Ways to Learn & Plan
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+              Explore our interactive calculators and join our growing network
+            </p>
+            <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
+              <div className="w-12 sm:w-16 h-1 bg-white rounded-full" />
+              <div className="w-2 h-2 bg-white animate-pulse rounded-full" />
+              <div className="w-12 sm:w-16 h-1 bg-white rounded-full" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                icon: Calculator,
+                title: "Compound Growth Calculator",
+                description: "See how your money can grow when you plan strategically. Use our interactive calculator to visualize different investment scenarios.",
+                gradient: "from-blue-500 to-blue-600",
+                link: "/calculator",
+                buttonText: "Use Calculator"
+              },
+              {
+                icon: TrendingUp,
+                title: "Join AV Financial Partners",
+                description: "Be part of our growing network of professionals helping others achieve financial peace of mind—while earning income and impact.",
+                gradient: "from-purple-500 to-purple-600",
+                link: "/participate",
+                buttonText: "Join Now"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+                <div className="relative bg-white border border-slate-700/50 rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:border-slate-600 overflow-hidden h-full flex flex-col">
+                  
+
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3  transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-black0 leading-relaxed mb-4 sm:mb-6 flex-grow  transition-colors duration-300">
+                    {item.description}
+                  </p>
+                  <Link to={item.link}>
+                    <Button
+                      variant="outline"
+                      className="w-full sm:w-auto border-2 border-slate-600 text-black  hover:bg-white hover:text-black   text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      {item.buttonText}
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-20"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="group relative">
+            <div className="relative rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="absolute top-0 left-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t-2 border-l-2 border-slate-400 rounded-br-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b-2 border-r-2 border-slate-400 rounded-tl-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
+
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 text-center mb-4 sm:mb-6 group-hover:text-slate-800 transition-colors duration-300">
+                Need Personalized Guidance?
               </h2>
-              <p className="text-xl text-white/60 max-w-3xl mx-auto">
-                Explore our interactive calculators and join our growing network
+              <p className="text-sm sm:text-base md:text-lg text-slate-600 text-center mb-8 sm:mb-10 md:mb-12 leading-relaxed max-w-3xl mx-auto group-hover:text-slate-700 transition-colors duration-300">
+                If you're looking for advice specific to your situation, Shrutep Amin is here to help. Schedule a free consultation and get a roadmap tailored to your goals, lifestyle, and family's future.
               </p>
-              <div className="w-20 h-1 bg-gradient-to-r from-white/30 to-white/10 mx-auto mt-8 rounded-full"></div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <div className="group relative">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-
-                {/* Card */}
-                <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/20 overflow-hidden h-full flex flex-col">
-
-                  {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/20 rounded-br-2xl group-hover:border-white/40 transition-colors duration-300"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white/20 rounded-tl-2xl group-hover:border-white/40 transition-colors duration-300"></div>
-
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                    <Calculator className="w-7 h-7 text-white" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors duration-300">
-                    Compound Growth Calculator
-                  </h3>
-                  <p className="text-white/70 mb-6 leading-relaxed flex-grow group-hover:text-white/80 transition-colors duration-300">
-                    See how your money can grow when you plan strategically. Use our interactive calculator
-                    to visualize different investment scenarios.
-                  </p>
-                  <Link to="/calculator">
-                    <Button
-                      variant="outline"
-                      className="border-2 border-white/20 text-white bg-transparent hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-                    >
-                      Use Calculator
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-
-              <div className="group relative">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-
-                {/* Card */}
-                <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-white/20 overflow-hidden h-full flex flex-col">
-
-                  {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/20 rounded-br-2xl group-hover:border-white/40 transition-colors duration-300"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white/20 rounded-tl-2xl group-hover:border-white/40 transition-colors duration-300"></div>
-
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                    <TrendingUp className="w-7 h-7 text-white" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors duration-300">
-                    Join AV Financial Partners
-                  </h3>
-                  <p className="text-white/70 mb-6 leading-relaxed flex-grow group-hover:text-white/80 transition-colors duration-300">
-                    Be part of our growing network of professionals helping others achieve financial peace
-                    of mind—while earning income and impact.
-                  </p>
-                  <Link to="/participate">
-                    <Button
-                      variant="outline"
-                      className="border-2 border-white/20 text-white bg-transparent hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-                    >
-                      Join Now
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </div>
+              <div className="flex justify-center">
+                <Link to="/contact">
+                  <Button
+                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    Schedule Your Free Consultation
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* CTA Section - Light */}
-        <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-30"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-100 rounded-full blur-3xl opacity-30"></div>
-          </div>
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              {/* CTA Card */}
-              <div className="group relative">
-                {/* Main Card */}
-                <div className="relative">
-                  {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-slate-400 rounded-br-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-slate-400 rounded-tl-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
-
-                  {/* Heading */}
-                  <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 text-center mb-6 group-hover:text-slate-800 transition-colors duration-300">
-                    Need Personalized Guidance?
-                  </h2>
-
-                  {/* Description */}
-                  <p className="text-xl text-slate-600 text-center mb-12 leading-relaxed max-w-3xl mx-auto group-hover:text-slate-700 transition-colors duration-300">
-                    If you're looking for advice specific to your situation, Shrutep Amin is here to help.
-                    Schedule a free consultation and get a roadmap tailored to your goals, lifestyle, and
-                    family's future.
-                  </p>
-
-                  {/* Button */}
-                  <div className="flex justify-center">
-                    <Link to="/contact">
-                      <Button
-                        size="lg"
-                        className="bg-slate-900 text-white hover:bg-slate-800 font-bold px-10 py-7 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-lg"
-                      >
-                        Schedule Your Free Consultation
-                        <ArrowRight className="w-5 h-5" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-    
+        </div>
+      </section>
       <Footer />
     </div>
   );

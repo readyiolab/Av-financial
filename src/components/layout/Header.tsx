@@ -46,13 +46,13 @@ export const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-sm font-medium text-white hover:text-primary transition-colors"
+                className="text-sm font-medium text-white  transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/contact">
-              <Button size="lg" className="gradient-primary shadow-glow">
+              <Button size="lg" className="px-6 py-2 bg-white text-black rounded-lg hover:bg-white/90 transition-colors">
                 Book Free Consultation
               </Button>
             </Link>
@@ -83,7 +83,7 @@ export const Header = () => {
                 </Link>
               ))}
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="gradient-primary shadow-glow w-full">
+                <Button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                   Book Free Consultation
                 </Button>
               </Link>

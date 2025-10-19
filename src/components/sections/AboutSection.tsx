@@ -116,9 +116,9 @@ export const AboutSection = () => {
               isHeroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 mb-8">
-              <Award className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-medium text-blue-300">Licensed Life & Health Insurance Producer</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-500/30 mb-8">
+              <Award className="w-4 h-4 text-black" />
+              <span className="text-sm font-medium text-black">Licensed Life & Health Insurance Producer</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl font-semibold text-white mb-4">

@@ -33,13 +33,13 @@ export const TestimonialsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-gray-900">
             Real Clients. <span className="text-slate-700">Real Security.</span>
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             See what our clients have to say about their experience with AV Financial
           </p>
-          <div className="w-20 h-1 bg-slate-300 mx-auto mt-6 rounded-full"></div>
+          <div className="w-20 h-1 bg-black mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Testimonials Grid */}

@@ -80,8 +80,7 @@ export const ServicesSection = () => {
               {/* Hover Border Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`} />
               
-              {/* Top Border Accent */}
-              <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r ${service.gradient} group-hover:w-3/4 transition-all duration-500 rounded-full`} />
+             
               
               <div className="relative z-10">
                 <div className="mb-6">
@@ -89,7 +88,7 @@ export const ServicesSection = () => {
                     <service.icon className="w-8 h-8 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:bg-clip-text group-hover:from-gray-900 group-hover:to-gray-700 transition-all duration-300">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:bg-clip-text group-hover:from-gray-900 group-hover:to-gray-700 transition-all duration-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
