@@ -55,7 +55,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+     
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -99,11 +99,11 @@ const AboutPage = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <button className="w-full sm:w-auto bg-white hover:bg-white-90 text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                   Schedule Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-slate-800 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
+                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-white hover:text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
                   Explore Services
                 </button>
               </div>
@@ -132,8 +132,8 @@ const AboutPage = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-[#1a2957] rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-widest">
                 Who is Shrutep Amin
               </span>
             </div>
@@ -360,8 +360,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="group relative">
             <div className="relative rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="absolute top-0 left-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t-2 border-l-2 border-white/20 rounded-br-3xl group-hover:border-white/40 transition-colors duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b-2 border-r-2 border-white/20 rounded-tl-3xl group-hover:border-white/40 transition-colors duration-300"></div>
+             
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center mb-4 sm:mb-6 group-hover:text-gray-100 transition-colors duration-300">
                 Ready to Take Control?
@@ -370,7 +369,7 @@ const AboutPage = () => {
                 Build financial security, grow your assets, and protect your family's future. Schedule a free consultation with Shrutep Amin and AV Financial today to start your journey toward financial clarity and confidence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
+                <button className="w-full sm:w-auto bg-white hover:bg-white/90 text-[#1a2957] font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
                   Schedule Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
@@ -382,7 +381,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+     
     </div>
   );
 };

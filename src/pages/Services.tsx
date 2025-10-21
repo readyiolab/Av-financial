@@ -300,7 +300,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header/>
+    
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -350,11 +350,11 @@ const Services = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <button className="w-full sm:w-auto bg-white hover:bg-white/90 text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                   Start Your Journey
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-slate-800 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
+                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-white hover:text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
                   Explore Services
                 </button>
               </div>
@@ -443,14 +443,14 @@ const Services = () => {
                 Our Services
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 text-center mb-4 sm:mb-6 px-4">
-              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center mb-4 sm:mb-6 px-4">
+             
                 Comprehensive Financial
-              </span>
+              
               <br />
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            
                 Solutions
-              </span>
+           
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed px-4">
               Tailored protection strategies for every stage of your life
@@ -634,8 +634,7 @@ const Services = () => {
           <div>
             <div className="group relative">
               <div className="relative">
-                <div className="absolute top-0 left-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t-2 border-l-2 border-slate-400 rounded-br-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
-                <div className="absolute bottom-0 right-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b-2 border-r-2 border-slate-400 rounded-tl-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
+                
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 text-center mb-4 sm:mb-6 group-hover:text-slate-800 transition-colors duration-300 px-4">
                   Start Your Journey Today
@@ -645,7 +644,7 @@ const Services = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-10 md:mb-12">
-                  <button className="bg-slate-900 text-white hover:bg-slate-800 font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
+                  <button className="bg-[#1a2957] text-white hover:bg-[#1a2957] font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
                     Schedule Free Consultation
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
@@ -668,8 +667,8 @@ const Services = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/30 mb-4 sm:mb-6 backdrop-blur-sm">
-              <span className="text-xs sm:text-sm font-semibold text-blue-300 uppercase tracking-wide">Try Our Tools</span>
+            <div className="inline-block px-4 py-2 bg-white rounded-full border border-blue-500/30 mb-4 sm:mb-6 backdrop-blur-sm">
+              <span className="text-xs sm:text-sm font-semibold text-[#1a2957] uppercase tracking-wide">Try Our Tools</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white px-4">
               Financial Planning Tools
@@ -730,7 +729,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+     
     </div>
   );
 };

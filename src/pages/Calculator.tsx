@@ -60,7 +60,7 @@ const CalculatorPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+   
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -108,11 +108,11 @@ const CalculatorPage = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <button className="w-full sm:w-auto bg-white hover:bg-white/90 text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                   Get Started
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-slate-800 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
+                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-transparent text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
                   Learn More
                 </button>
               </div>
@@ -143,8 +143,8 @@ const CalculatorPage = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-[#1a2957] rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-widest">
                 Plan Your Growth
               </span>
             </div>
@@ -163,8 +163,7 @@ const CalculatorPage = () => {
               <div className="group relative">
                 <div className="absolute inset-0 bg-slate-200 rounded-3xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 blur-lg"></div>
                 <div className="relative bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 md:p-12 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
-                  <div className="absolute top-0 left-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t-2 border-l-2 border-slate-400 rounded-br-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
-                  <div className="absolute bottom-0 right-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b-2 border-r-2 border-slate-400 rounded-tl-3xl group-hover:border-slate-500 transition-colors duration-300"></div>
+                 
 
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-6 sm:mb-8 flex items-center gap-3">
                     Your Investments
@@ -184,7 +183,7 @@ const CalculatorPage = () => {
                         step="1000"
                         value={initialAmount}
                         onChange={(e) => setInitialAmount(Number(e.target.value))}
-                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-blue-600"
+                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-[#1a2957]"
                       />
                       <div className="flex justify-between text-xs sm:text-sm text-slate-500 mt-2">
                         <span>$0</span>
@@ -205,7 +204,7 @@ const CalculatorPage = () => {
                         step="100"
                         value={monthlyContribution}
                         onChange={(e) => setMonthlyContribution(Number(e.target.value))}
-                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-blue-600"
+                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-[#1a2957]"
                       />
                       <div className="flex justify-between text-xs sm:text-sm text-slate-500 mt-2">
                         <span>$0</span>
@@ -226,7 +225,7 @@ const CalculatorPage = () => {
                         step="0.5"
                         value={interestRate}
                         onChange={(e) => setInterestRate(Number(e.target.value))}
-                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-blue-600"
+                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-[#1a2957]"
                       />
                       <div className="flex justify-between text-xs sm:text-sm text-slate-500 mt-2">
                         <span>1%</span>
@@ -247,7 +246,7 @@ const CalculatorPage = () => {
                         step="1"
                         value={years}
                         onChange={(e) => setYears(Number(e.target.value))}
-                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-blue-600"
+                        className="w-full h-2 sm:h-3 bg-slate-300 rounded-full appearance-none cursor-pointer accent-[#1a2957]"
                       />
                       <div className="flex justify-between text-xs sm:text-sm text-slate-500 mt-2">
                         <span>1 year</span>
@@ -376,8 +375,7 @@ const CalculatorPage = () => {
             ))}
           </div>
         </div>
-        <div className="absolute top-10 left-10 w-16 sm:w-20 h-16 sm:h-20 border-l-2 border-t-2 border-blue-500/30 rounded-tl-3xl" />
-        <div className="absolute bottom-10 right-10 w-16 sm:w-20 h-16 sm:h-20 border-r-2 border-b-2 border-purple-500/30 rounded-br-3xl" />
+       
       </section>
 
       {/* Expert Tips Section */}
@@ -389,8 +387,8 @@ const CalculatorPage = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-[#1a2957] rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-widest">
                 Expert Tips
               </span>
             </div>
@@ -434,8 +432,7 @@ const CalculatorPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="group relative">
             <div className="relative rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="absolute top-0 left-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t-2 border-l-2 border-white/20 rounded-br-3xl group-hover:border-white/40 transition-colors duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b-2 border-r-2 border-white/20 rounded-tl-3xl group-hover:border-white/40 transition-colors duration-300"></div>
+             
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center mb-4 sm:mb-6 group-hover:text-gray-100 transition-colors duration-300">
                 Ready to Build Your Wealth?
@@ -444,7 +441,7 @@ const CalculatorPage = () => {
                 Use this calculator to explore your possibilities. Then work with our financial experts to create a personalized roadmap for lasting wealth growth and financial security.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
+                <button className="w-full sm:w-auto bg-white hover:bg-white/80 text-[#1a2957] font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
                   Schedule Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
@@ -456,7 +453,7 @@ const CalculatorPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+   
     </div>
   );
 };

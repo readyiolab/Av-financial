@@ -1,12 +1,16 @@
+// src/App.tsx (updated)
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { TrendingUp, Shield, DollarSign } from "lucide-react";
 
-// Lazy load all pages
+// Layouts
+import MainLayout from "./components/layout/MainLayout";
+import AdminLayout from "./components/layout/AdminLayout";
+
+// Lazy load public pages
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
@@ -16,9 +20,15 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Lazy load admin pages (create these in src/pages/admin)
+const AdminLogin = lazy(() => import("./pages/admin/Login"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const Subscribers = lazy(() => import("./pages/admin/Subscribers"));
+const Applications = lazy(() => import("./pages/admin/Applications"));
+
 const queryClient = new QueryClient();
 
-// Premium Loader Component
+// Premium Loader Component (unchanged)
 const AVLoader = () => {
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center z-50 overflow-hidden">
@@ -32,9 +42,6 @@ const AVLoader = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
       <div className="relative z-10 text-center">
-        {/* Logo Animation */}
-       
-
         {/* Brand Name */}
         <h2 className="text-4xl font-bold mb-4">
           <span className="bg-white bg-clip-text text-transparent">
@@ -51,9 +58,6 @@ const AVLoader = () => {
             <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
           </div>
         </div>
-
-
-        
       </div>
 
       <style>{`
@@ -78,14 +82,28 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<AVLoader />}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/participate" element={<Participate />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/resources" element={<Resources />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            {/* Public routes with MainLayout */}
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/participate" element={<Participate />} />
+              <Route path="/calculator" element={<Calculator />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/resources" element={<Resources />} />
+            </Route>
+
+            {/* Admin routes with AdminLayout (protected) */}
+            <Route element={<AdminLayout />}>
+              <Route path="/admin/dashboard" element={<Dashboard />} />
+              <Route path="/admin/subscribers" element={<Subscribers />} />
+              <Route path="/admin/applications" element={<Applications />} />
+            </Route>
+
+            {/* Admin login (standalone, no layout) */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+
+            {/* Catch-all for NotFound */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

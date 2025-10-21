@@ -108,7 +108,7 @@ const ParticipatePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+    
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -156,11 +156,11 @@ const ParticipatePage = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <button className="w-full sm:w-auto bg-white hover:bg-white/90 text-[#1a2957] text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                   Schedule Your Call
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent hover:bg-slate-800 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
+                <button className="w-full sm:w-auto border-2 border-slate-600 text-white bg-transparent text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition-colors">
                   Learn More
                 </button>
               </div>
@@ -189,8 +189,8 @@ const ParticipatePage = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-[#1a2957] rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-widest">
                 Why Join Us
               </span>
             </div>
@@ -292,8 +292,8 @@ const ParticipatePage = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-slate-100 rounded-full mb-4 sm:mb-6 border border-slate-200">
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 uppercase tracking-widest">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-[#1a2957] rounded-full mb-4 sm:mb-6 border border-slate-200">
+              <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-widest">
                 Comprehensive Support
               </span>
             </div>
@@ -311,7 +311,7 @@ const ParticipatePage = () => {
               <div key={idx} className="group relative">
                 <div className="absolute inset-0 bg-slate-200 rounded-xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 blur-lg"></div>
                 <div className="relative flex items-center border-2 border-slate-200 gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-white shadow-md hover:shadow-lg group-hover:border-slate-300 transition-all duration-300">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#1a2957] flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-semibold text-sm sm:text-base text-slate-900 group-hover:text-slate-800 transition-colors duration-300">
@@ -395,13 +395,13 @@ const ParticipatePage = () => {
              
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 text-center mb-4 sm:mb-6 group-hover:text-slate-800 transition-colors duration-300">
-                Ready to Transform <span className="text-blue-600">Your Future?</span>
+                Ready to Transform <span className="text-[#1a2957]">Your Future?</span>
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-slate-600 text-center mb-8 sm:mb-10 md:mb-12 leading-relaxed max-w-3xl mx-auto group-hover:text-slate-700 transition-colors duration-300">
                 Take the first step toward a rewarding career with AV Financial. Learn, grow, and achieve financial independence while helping families secure their futures.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
+                <button className="w-full sm:w-auto bg-[#1a2957] hover:bg-blue-700 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg">
                   Schedule Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
@@ -413,7 +413,7 @@ const ParticipatePage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+    
     </div>
   );
 };

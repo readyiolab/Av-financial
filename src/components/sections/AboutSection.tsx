@@ -62,7 +62,7 @@ const StatCounter = ({ end, label, suffix = "", delay }) => {
   }, [started, end]);
 
   return (
-    <div className="text-center group cursor-default">
+    <div className="text-center group cursor-default min-w-[120px]">
       <div className="text-3xl font-medium bg-white bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
         {count}{suffix}
       </div>
@@ -151,7 +151,7 @@ export const AboutSection = () => {
 
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-white text-black px-8 py-6 text-lg rounded-xl shadow-2xl  transition-all duration-300 "
+              className="group relative overflow-hidden bg-white text-black px-8 py-6 text-lg rounded-xl shadow-2xl transition-all duration-300"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Learn More About Shrutep
@@ -164,7 +164,7 @@ export const AboutSection = () => {
 
         {/* Stats Section */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto transition-all duration-1000 delay-500 ${
+          className={`flex flex-row space-x-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-8 md:overflow-x-visible mb-20 max-w-4xl mx-auto transition-all duration-1000 delay-500 ${
             isHeroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
@@ -173,7 +173,6 @@ export const AboutSection = () => {
           <StatCounter end={99} label="Satisfaction Rate" suffix="%" delay={1000} />
         </div>
 
-        
         {/* Decorative Elements */}
         <div className="absolute top-20 right-20 w-32 h-32 border border-blue-500/20 rounded-full animate-spin-slow" />
         <div className="absolute bottom-20 left-20 w-24 h-24 border border-purple-500/20 rounded-full animate-spin-slow delay-500" />

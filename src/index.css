@@ -201,4 +201,29 @@ All colors MUST be HSL.
       transform: translateY(0);
     }
   }
+
+  /* Custom Scrollbar Styles */
+  .scrollbar-thin-blue::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin-blue::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .scrollbar-thin-blue::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: var(--radius);
+  }
+
+  .scrollbar-thin-blue::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+
+  /* Firefox Scrollbar */
+  .scrollbar-thin-blue {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+  }
 }
