@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/av-financial-logo.png";
+import logo from '/src/assets/av-financial-logo.webp';
+
 
 export const Footer = () => {
   const quickLinks = [
@@ -22,7 +23,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <img src={logo} alt="AV Financial" className="h-10 w-auto mb-4" />
+            <img src="/assets/av-financial-logo.webp" alt="AV Financial" className="h-10 w-auto mb-4" />
             <p className="text-muted-foreground mb-4">
               Building lifelong financial protection with clarity and confidence.
             </p>
