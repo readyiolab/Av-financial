@@ -1,39 +1,48 @@
+// src/components/layout/AdminHeader.tsx
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, LogOut } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Sidebar from "./Sidebar";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 
 const AdminHeader = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    toast({ title: "Logged out", description: "See you soon!" });
+    navigate("/admin/login");
+  };
+
   return (
-    <header
-      className={cn(
-        "bg-white p-4 flex items-center justify-between shadow-md",
-        "sticky top-0 z-10"
-      )}
-    >
+    <header className="bg-white p-4 flex items-center justify-between shadow-md sticky top-0 z-50">
       <div className="flex items-center gap-4">
+        {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white/80 hover:bg-white/10 md:hidden"
-            >
-              <Menu size={24} />
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <Sidebar isSheet />
+          <SheetContent side="left" className="p-0 w-64">
+            <Sidebar isSheet />
+          </SheetContent>
         </Sheet>
-        <h1 className="text-xl md:text-2xl font-bold text-black">
+
+        <h1 className="text-xl md:text-2xl font-bold text-[#1a2957]">
           AV Financial Admin
         </h1>
       </div>
+
       <Button
+        onClick={handleLogout}
         variant="outline"
-        className="text-white bg-black hover:bg-gray-800 hover:text-white"
+        className="flex items-center gap-2"
       >
-        Logout
+        <LogOut className="h-4 w-4" />
+        <span className="hidden sm:inline">Logout</span>
       </Button>
     </header>
   );

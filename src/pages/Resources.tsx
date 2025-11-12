@@ -1,49 +1,68 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// src/pages/Resources.tsx
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, TrendingUp, Shield, Calculator, ArrowRight, BookOpen } from "lucide-react";
+import {
+  FileText,
+  Download,
+  TrendingUp,
+  Shield,
+  Calculator,
+  ArrowRight,
+  BookOpen,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+import ApplicationModal from "@/components/ApplicationModal";
 
 const Resources = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPdf, setSelectedPdf] = useState("");
+
   const resources = [
     {
       icon: Shield,
-      title: "The Ultimate Guide to Maximizing Medicare Benefits Without Overpaying",
+      title: "Tax-Advantaged Income Stream",
       description: "Navigate Medicare with confidence and make every dollar count.",
       gradient: "from-blue-500 to-blue-600",
+      pdf: "Tax-Advantaged Income Stream.pdf",
       points: [
         "Learn how to choose the right plans for your needs",
         "Understand coverage options, costs, and ways to minimize out-of-pocket expenses",
-        "Take control of your healthcare decisions with clarity and peace of mind"
-      ]
+        "Take control of your healthcare decisions with clarity and peace of mind",
+      ],
     },
     {
       icon: TrendingUp,
-      title: "How to Turn Annuities Into a Reliable, Tax-Advantaged Income Stream",
+      title: "Medicare Benefits Without Overpaying",
       description: "Discover how annuities can provide steady, tax-smart income for retirement.",
       gradient: "from-purple-500 to-purple-600",
+      pdf: "Medicare Benefits Without Overpaying.pdf",
       points: [
         "Learn the different types of annuities and their benefits",
         "Understand how to structure payouts for long-term financial security",
-        "Make informed choices that help your money grow while reducing tax burdens"
-      ]
+        "Make informed choices that help your money grow while reducing tax burdens",
+      ],
     },
     {
       icon: Calculator,
-      title: "Compound Your Money: How Small, Smart Investments Lead to Big Growth",
+      title: "Smart Investments ",
       description: "Harness the power of compounding to grow your wealth over time.",
       gradient: "from-emerald-500 to-emerald-600",
+      pdf: "Smart Investments.pdf",
       points: [
         "Visualize how consistent, strategic investments can multiply",
         "Learn practical techniques to boost returns without unnecessary risk",
-        "Plan for short-term goals and long-term financial freedom with confidence"
-      ]
-    }
+        "Plan for short-term goals and long-term financial freedom with confidence",
+      ],
+    },
   ];
+
+  const openModal = (pdfTitle: string) => {
+    setSelectedPdf(pdfTitle);
+    setModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-white">
-     
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -147,7 +166,9 @@ const Resources = () => {
                 <div key={idx} className="group relative">
                   <div className="absolute inset-0 bg-slate-200 rounded-2xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 blur-lg"></div>
                   <div className="relative bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 h-full flex flex-col border border-slate-200">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${resource.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${resource.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}
+                    >
                       <resource.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3 group-hover:text-slate-800 transition-colors duration-300">
@@ -158,7 +179,10 @@ const Resources = () => {
                     </p>
                     <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                       {resource.points.map((point, pointIdx) => (
-                        <li key={pointIdx} className="flex items-start gap-2 sm:gap-3 text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                        <li
+                          key={pointIdx}
+                          className="flex items-start gap-2 sm:gap-3 text-slate-600 group-hover:text-slate-700 transition-colors duration-300"
+                        >
                           <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-300 transition-colors duration-300">
                             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-700"></div>
                           </div>
@@ -166,7 +190,10 @@ const Resources = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full sm:w-auto bg-[#1a2957] hover:bg-[#1a2950] text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+                    <Button
+                      onClick={() => openModal(resource.pdf)}
+                      className="w-full bg-[#1a2957] hover:bg-[#1a2957]/90 text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                    >
                       Download Now
                       <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
@@ -216,7 +243,7 @@ const Resources = () => {
                 description: "See how your money can grow when you plan strategically. Use our interactive calculator to visualize different investment scenarios.",
                 gradient: "from-blue-500 to-blue-600",
                 link: "/calculator",
-                buttonText: "Use Calculator"
+                buttonText: "Use Calculator",
               },
               {
                 icon: TrendingUp,
@@ -224,28 +251,25 @@ const Resources = () => {
                 description: "Be part of our growing network of professionals helping others achieve financial peace of mind—while earning income and impact.",
                 gradient: "from-purple-500 to-purple-600",
                 link: "/participate",
-                buttonText: "Join Now"
-              }
+                buttonText: "Join Now",
+              },
             ].map((item, idx) => (
               <div key={idx} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
                 <div className="relative bg-white border border-slate-700/50 rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:border-slate-600 overflow-hidden h-full flex flex-col">
-                  
-
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                  <div
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}
+                  >
                     <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3  transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-black0 leading-relaxed mb-4 sm:mb-6 flex-grow  transition-colors duration-300">
+                  <p className="text-sm sm:text-base text-black leading-relaxed mb-4 sm:mb-6 flex-grow transition-colors duration-300">
                     {item.description}
                   </p>
                   <Link to={item.link}>
-                    <Button
-                    
-                      className="w-full sm:w-auto border-2 bg-[#1a2957]  text-white  hover:bg-white hover:text-black   text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                    >
+                    <Button className="w-full sm:w-auto border-2 bg-[#1a2957] text-white hover:bg-white hover:text-black text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
                       {item.buttonText}
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
@@ -255,7 +279,6 @@ const Resources = () => {
             ))}
           </div>
         </div>
-
       </section>
 
       {/* CTA Section */}
@@ -268,8 +291,6 @@ const Resources = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="group relative">
             <div className="relative rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-          
-
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 text-center mb-4 sm:mb-6 group-hover:text-slate-800 transition-colors duration-300">
                 Need Personalized Guidance?
               </h2>
@@ -278,9 +299,7 @@ const Resources = () => {
               </p>
               <div className="flex justify-center">
                 <Link to="/contact">
-                  <Button
-                    className="w-full sm:w-auto bg-[#1a2957] hover:bg-[#1a2950] text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                  >
+                  <Button className="w-full sm:w-auto bg-[#1a2957] hover:bg-[#1a2957]/90 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
                     Schedule Your Free Consultation
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
@@ -290,7 +309,16 @@ const Resources = () => {
           </div>
         </div>
       </section>
-    
+
+      {/* Application Modal */}
+      <ApplicationModal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        pdfTitle={selectedPdf}
+        onSuccess={() => {
+          // Optional: analytics, confetti, etc.
+        }}
+      />
     </div>
   );
 };

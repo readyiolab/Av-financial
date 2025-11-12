@@ -110,11 +110,11 @@ const AboutPage = () => {
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="relative rounded-tl-[3rem] overflow-hidden">
+              <div className="relative rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                  src="av.webp"
                   alt="Shrutep Amin - Financial Advisor"
-                  className="w-full h-[500px] md:h-[650px] object-cover"
+                  className="w-full  object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
               </div>

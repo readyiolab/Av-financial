@@ -19,7 +19,7 @@ export const Header = () => {
   const navLinks = [
     { label: "Services", href: "/services" },
     { label: "About", href: "/about" },
-    { label: "Participate", href: "/participate" },
+    { label: "Business Opportunity", href: "/participate" },
     { label: "Calculator", href: "/calculator" },
     { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
@@ -33,7 +33,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 md:gap-3">
-            <img src="/assets/av-financial-logo.webp" alt="AV Financial Logo" className="h-12 md:h-14 w-auto" />
+            <img src="/assets/av-financial-logo.webp" alt="AV Financial Logo" className="h-14 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

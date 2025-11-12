@@ -1,24 +1,49 @@
+// src/pages/admin/Login.tsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add actual auth logic here (e.g., API call)
-    navigate("/admin/dashboard");
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:4000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("token", data.data.token);
+        toast({ title: "Success", description: "Welcome back!" });
+        navigate("/admin/dashboard");
+      } else {
+        toast({ title: "Error", description: data.message, variant: "destructive" });
+      }
+    } catch {
+      toast({ title: "Error", description: "Connection failed", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <Card className="w-full max-w-md shadow-md">
+      <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl text-center text-[#1a2957]">
             Admin Login
@@ -26,37 +51,31 @@ const AdminLogin = () => {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="username" className="text-[#1a2957]">
-                Username
-              </Label>
+            <div>
+              <Label>Username</Label>
               <Input
-                id="username"
-                type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="border-gray-300 focus:border-[#1a2957]"
+                disabled={loading}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-[#1a2957]">
-                Password
-              </Label>
+            <div>
+              <Label>Password</Label>
               <Input
-                id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="border-gray-300 focus:border-[#1a2957]"
+                disabled={loading}
               />
             </div>
             <Button
               type="submit"
-              className="w-full bg-[#1a2957] text-white hover:bg-[#1a2957]/90"
+              className="w-full bg-[#1a2957] hover:bg-[#1a2957]/90"
+              disabled={loading}
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
         </CardContent>
