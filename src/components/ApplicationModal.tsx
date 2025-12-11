@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { Download, Loader2 } from "lucide-react";
 import { useEffect } from "react";
+import {API} from '../config/api'
 
 const schema = z.object({
   name: z.string().min(3, "Name must be at least 3 characters"),
@@ -53,9 +54,9 @@ const ApplicationModal = ({ open, onOpenChange, pdfTitle, onSuccess }: Applicati
 
   const onSubmit = async (data: FormData) => {
     try {
-      console.log("Submitting data:", data); // Debug log
       
-      const res = await fetch("http://localhost:4000/api/applications/", {
+      
+      const res = await fetch(`${API.APPLICATIONS}/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

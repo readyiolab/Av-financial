@@ -1,9 +1,10 @@
 // src/services/api.ts
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 
 const api = axios.create({
-  baseURL: "http://localhost:4000/api",
-  withCredentials: true, // for cookies (optional)
+  baseURL: API_BASE_URL,
+  withCredentials: true,
 });
 
 // Add JWT to every request
@@ -15,7 +16,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle 401 → auto logout
+// Auto logout on 401
 api.interceptors.response.use(
   (response) => response,
   (error) => {

@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
+import api from "@/services/api";
+
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -17,25 +19,30 @@ const AdminLogin = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
+  
     try {
-      const res = await fetch("http://localhost:4000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+      const res = await api.post("/auth/login", {
+        username,
+        password,
       });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        localStorage.setItem("token", data.data.token);
-        toast({ title: "Success", description: "Welcome back!" });
-        navigate("/admin/dashboard");
-      } else {
-        toast({ title: "Error", description: data.message, variant: "destructive" });
-      }
-    } catch {
-      toast({ title: "Error", description: "Connection failed", variant: "destructive" });
+  
+      const data = res.data;
+  
+      // Save token
+      localStorage.setItem("token", data.data.token);
+  
+      toast({
+        title: "Success",
+        description: "Welcome back!",
+      });
+  
+      navigate("/admin/dashboard");
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.response?.data?.message || "Connection failed",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

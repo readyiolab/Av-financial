@@ -6,22 +6,68 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, Phone, MapPin, MessageCircle, CheckCircle, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, CheckCircle, ArrowRight, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { API } from '../config/api'
 
 const Contact = () => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    reason: "General Inquiry",
+    inquiry_type: "general",
     message: ""
   });
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch(`${API.CONTACT}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          inquiry_type: "general",
+          message: "",
+        });
+
+        // Clear success message after 5 sec
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus("error");
+        console.error("Error:", data.message);
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error("Network error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+
 
   const faqs = [
     {
@@ -106,7 +152,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 sm:pt-20">
         <div className="absolute inset-0">
@@ -214,7 +260,7 @@ const Contact = () => {
                 <a key={idx} href={method.link} className="group relative block">
                   <div className="absolute inset-0 bg-slate-200 rounded-2xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 blur-lg"></div>
                   <div className="relative bg-white border-2 border-slate-200 rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300  group-hover:border-[#1a2957] overflow-hidden flex items-center gap-4 sm:gap-6">
-                    
+
 
                     <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${method.color} flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300 flex-shrink-0`}>
                       <method.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -267,9 +313,28 @@ const Contact = () => {
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
                 <div className="relative bg-white rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:border-slate-600 overflow-hidden">
-                 
+
 
                   <h3 className="text-lg sm:text-xl font-bold text-[#1a2957] mb-4 sm:mb-6">Send Us a Message</h3>
+                  {/* Success Message */}
+                  {submitStatus === "success" && (
+                    <div className="mb-6 p-4 bg-green-50 border-2 border-green-500 rounded-lg flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-green-800">Message Sent Successfully!</p>
+                        <p className="text-xs text-green-700 mt-1">We'll get back to you within 24 hours.</p>
+                      </div>
+                    </div>
+                  )}
+
+
+                  {/* Error Message */}
+                  {submitStatus === "error" && (
+                    <div className="mb-6 p-4 bg-red-50 border-2 border-red-500 rounded-lg">
+                      <p className="text-sm font-semibold text-red-800">Something went wrong!</p>
+                      <p className="text-xs text-red-700 mt-1">Please try again or call us directly.</p>
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
@@ -279,8 +344,9 @@ const Contact = () => {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-600  text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                           placeholder="Enter your full name"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -290,37 +356,38 @@ const Contact = () => {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-600  text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                           placeholder="your.email@example.com"
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
-                        <label className="block text-xs sm:text-sm font-medium mb-2 text-[#1a2957]">Phone Number</label>
+                        <label className="block text-xs sm:text-sm font-medium mb-2 text-[#1a2957]">Phone Number *</label>
                         <input
                           type="tel"
+                          required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-600  text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                           placeholder="(XXX) XXX-XXXX"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
                         <label className="block text-xs sm:text-sm font-medium mb-2 text-[#1a2957]">Reason for Contact *</label>
                         <select
                           required
-                          value={formData.reason}
-                          onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-600  text-[#1a2957] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          value={formData.inquiry_type}
+                          onChange={(e) => setFormData({ ...formData, inquiry_type: e.target.value })}
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-300 text-[#1a2957] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          disabled={isSubmitting}
                         >
-                          <option>General Inquiry</option>
-                          <option>Life Insurance</option>
-                          <option>Retirement Planning</option>
-                          <option>Medicare</option>
-                          <option>Annuities</option>
-                          <option>Travel/Dental Insurance</option>
-                          <option>Long-Term Care</option>
+                          <option value="general">General Inquiry</option>
+                          <option value="coaching">Financial Coaching</option>
+                          <option value="workshop">Workshop Inquiry</option>
+                          <option value="testimonial">Testimonial</option>
                         </select>
                       </div>
                     </div>
@@ -331,16 +398,27 @@ const Contact = () => {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         rows={6}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-600  text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
                         placeholder="Share your questions or describe your financial goals..."
+                        disabled={isSubmitting}
                       />
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-[#1a2957] hover:bg-[#1a2957] text-white text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#1a2957] hover:bg-[#2a3967] disabled:bg-slate-400 disabled:cursor-not-allowed text-white text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
                     >
-                      Send Message
-                      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </div>
@@ -385,8 +463,8 @@ const Contact = () => {
               <div key={idx} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
                 <div className="relative bg-gradient-to-br from-slate-900/90 to-slate-800/90 border border-slate-700/50 rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:border-slate-600 overflow-hidden h-full flex flex-col text-center">
-                  
-                 
+
+
 
                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
                     <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -402,7 +480,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-       
+
       </section>
 
       {/* FAQs Section */}
@@ -449,7 +527,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    
+
     </div>
   );
 };
